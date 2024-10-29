@@ -11,7 +11,7 @@ package nextgen
 
 // Returns Template input YAML with template response
 type TemplateWithInputsResponse struct {
-	TemplateResponse *TemplateResponse `json:"template_response,omitempty"`
+	Template *TemplateResponse `json:"template,omitempty"`
 	// Input Yaml for the Template
-	InputYaml string `json:"input_yaml,omitempty"`
+	Inputs string `json:"inputs,omitempty"`
 }

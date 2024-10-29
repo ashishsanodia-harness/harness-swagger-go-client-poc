@@ -9,17 +9,17 @@
  */
 package nextgen
 
-// Pipeline request body object 
+// Pipeline request body object
 type PipelineCreateRequestBody struct {
 	// Pipeline YAML (to be passed as a String).
 	PipelineYaml string `json:"pipeline_yaml"`
 	// Pipeline identifier
-	Slug string `json:"slug"`
+	Identifier string `json:"identifier"`
 	// Pipeline name
 	Name string `json:"name"`
 	// Pipeline description
 	Description string `json:"description,omitempty"`
 	// Pipeline tags
-	Tags map[string]string `json:"tags,omitempty"`
+	Tags       map[string]string `json:"tags,omitempty"`
 	GitDetails *GitCreateDetails `json:"git_details,omitempty"`
 }

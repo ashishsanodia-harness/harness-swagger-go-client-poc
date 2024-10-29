@@ -107,6 +107,16 @@ Class | Method | HTTP request | Description
 *ProjectConnectorApi* | [**GetProjectScopedConnectors**](docs/ProjectConnectorApi.md#getprojectscopedconnectors) | **Get** /v1/orgs/{org}/projects/{project}/connectors | List connectors
 *ProjectConnectorApi* | [**TestProjectScopedConnector**](docs/ProjectConnectorApi.md#testprojectscopedconnector) | **Get** /v1/orgs/{org}/projects/{project}/connectors/{connector}/test-connection | Test a connector
 *ProjectConnectorApi* | [**UpdateProjectScopedConnector**](docs/ProjectConnectorApi.md#updateprojectscopedconnector) | **Put** /v1/orgs/{org}/projects/{project}/connectors/{connector} | Update a connector
+*ProjectEnvironmentsApi* | [**CreateEnvServiceOverride**](docs/ProjectEnvironmentsApi.md#createenvserviceoverride) | **Post** /v1/orgs/{org}/projects/{project}/environments/{environment}/services/{service} | Create Service Override
+*ProjectEnvironmentsApi* | [**CreateEnvironment**](docs/ProjectEnvironmentsApi.md#createenvironment) | **Post** /v1/orgs/{org}/projects/{project}/environments | Create an Environment
+*ProjectEnvironmentsApi* | [**DeleteEnvServiceOverride**](docs/ProjectEnvironmentsApi.md#deleteenvserviceoverride) | **Delete** /v1/orgs/{org}/projects/{project}/environments/{environment}/services/{service} | Delete Service Override
+*ProjectEnvironmentsApi* | [**DeleteEnvironment**](docs/ProjectEnvironmentsApi.md#deleteenvironment) | **Delete** /v1/orgs/{org}/projects/{project}/environments/{environment} | Delete an Environment
+*ProjectEnvironmentsApi* | [**GetEnvServiceOverride**](docs/ProjectEnvironmentsApi.md#getenvserviceoverride) | **Get** /v1/orgs/{org}/projects/{project}/environments/{environment}/services/{service} | Retrieve a Service Override
+*ProjectEnvironmentsApi* | [**GetEnvServiceOverrides**](docs/ProjectEnvironmentsApi.md#getenvserviceoverrides) | **Get** /v1/orgs/{org}/projects/{project}/environments/{environment}/services | Retrieve Service Overrides list
+*ProjectEnvironmentsApi* | [**GetEnvironment**](docs/ProjectEnvironmentsApi.md#getenvironment) | **Get** /v1/orgs/{org}/projects/{project}/environments/{environment} | Retrieve an Environment
+*ProjectEnvironmentsApi* | [**GetEnvironments**](docs/ProjectEnvironmentsApi.md#getenvironments) | **Get** /v1/orgs/{org}/projects/{project}/environments | List Environments
+*ProjectEnvironmentsApi* | [**UpdateEnvServiceOverride**](docs/ProjectEnvironmentsApi.md#updateenvserviceoverride) | **Put** /v1/orgs/{org}/projects/{project}/environments/{environment}/services/{service} | Update Service Override
+*ProjectEnvironmentsApi* | [**UpdateEnvironment**](docs/ProjectEnvironmentsApi.md#updateenvironment) | **Put** /v1/orgs/{org}/projects/{project}/environments/{environment} | Update Environment
 *ProjectResourceGroupsApi* | [**CreateResourceGroupProject**](docs/ProjectResourceGroupsApi.md#createresourcegroupproject) | **Post** /v1/orgs/{org}/projects/{project}/resource-groups | Create a Resource Group
 *ProjectResourceGroupsApi* | [**DeleteResourceGroupProject**](docs/ProjectResourceGroupsApi.md#deleteresourcegroupproject) | **Delete** /v1/orgs/{org}/projects/{project}/resource-groups/{resource-group} | Delete a Resource Group
 *ProjectResourceGroupsApi* | [**GetResourceGroupProject**](docs/ProjectResourceGroupsApi.md#getresourcegroupproject) | **Get** /v1/orgs/{org}/projects/{project}/resource-groups/{resource-group} | Retrieve a Resource Group
@@ -173,6 +183,9 @@ Class | Method | HTTP request | Description
  - [CreateResourceGroupRequest](docs/CreateResourceGroupRequest.md)
  - [CreateRoleRequest](docs/CreateRoleRequest.md)
  - [EntityGitDetails](docs/EntityGitDetails.md)
+ - [Environment](docs/Environment.md)
+ - [EnvironmentRequest](docs/EnvironmentRequest.md)
+ - [EnvironmentResponse](docs/EnvironmentResponse.md)
  - [ExecutionSummary](docs/ExecutionSummary.md)
  - [ExecutorInfo](docs/ExecutorInfo.md)
  - [GitCreateDetails](docs/GitCreateDetails.md)
@@ -184,11 +197,8 @@ Class | Method | HTTP request | Description
  - [GitSshConnectorSpec](docs/GitSshConnectorSpec.md)
  - [GitUpdateDetails](docs/GitUpdateDetails.md)
  - [GitUpdateDetails1](docs/GitUpdateDetails1.md)
- - [InlineResponse200](docs/InlineResponse200.md)
  - [ModuleType](docs/ModuleType.md)
  - [NodeInfo](docs/NodeInfo.md)
- - [OneOfConnectorSpec](docs/OneOfConnectorSpec.md)
- - [OneOfSecretSpec](docs/OneOfSecretSpec.md)
  - [Organization](docs/Organization.md)
  - [OrganizationResponse](docs/OrganizationResponse.md)
  - [PipelineCreateRequestBody](docs/PipelineCreateRequestBody.md)
@@ -216,6 +226,8 @@ Class | Method | HTTP request | Description
  - [SecretSpec](docs/SecretSpec.md)
  - [SecretTextSpec](docs/SecretTextSpec.md)
  - [Service](docs/Service.md)
+ - [ServiceOverrideRequest](docs/ServiceOverrideRequest.md)
+ - [ServiceOverrideResponse](docs/ServiceOverrideResponse.md)
  - [ServiceRequest](docs/ServiceRequest.md)
  - [ServiceResponse](docs/ServiceResponse.md)
  - [SshKerberosTgtKeyTabFileSpec](docs/SshKerberosTgtKeyTabFileSpec.md)

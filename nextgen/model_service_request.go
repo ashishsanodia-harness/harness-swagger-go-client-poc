@@ -9,10 +9,10 @@
  */
 package nextgen
 
-// Service Request Body 
+// Service Request Body
 type ServiceRequest struct {
 	// Identifier of the Service
-	Slug string `json:"slug"`
+	Identifier string `json:"identifier"`
 	// Name of the Service
 	Name string `json:"name"`
 	// Description of the entity

@@ -1,3 +1,4 @@
+
 /*
  * Harness NextGen Software Delivery Platform API Reference
  *
@@ -11,12 +12,11 @@ package nextgen
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-
+	"fmt"
 	"github.com/antihax/optional"
 )
 
@@ -26,7 +26,6 @@ var (
 )
 
 type OrgSecretApiService service
-
 /*
 OrgSecretApiService Create a secret
 Creates a new secret
@@ -40,16 +39,16 @@ Creates a new secret
 */
 
 type OrgSecretApiCreateOrgScopedSecretOpts struct {
-	HarnessAccount optional.String
-	PrivateSecret  optional.Bool
+    HarnessAccount optional.String
+    PrivateSecret optional.Bool
 }
 
 func (a *OrgSecretApiService) CreateOrgScopedSecret(ctx context.Context, body SecretRequest, org string, localVarOptionals *OrgSecretApiCreateOrgScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -96,7 +95,7 @@ func (a *OrgSecretApiService) CreateOrgScopedSecret(ctx context.Context, body Se
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -117,33 +116,32 @@ func (a *OrgSecretApiService) CreateOrgScopedSecret(ctx context.Context, body Se
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 201 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 OrgSecretApiService Delete a secret
 Deletes the information of the secret with the matching secret slug.
@@ -156,15 +154,15 @@ Deletes the information of the secret with the matching secret slug.
 */
 
 type OrgSecretApiDeleteOrgScopedSecretOpts struct {
-	HarnessAccount optional.String
+    HarnessAccount optional.String
 }
 
 func (a *OrgSecretApiService) DeleteOrgScopedSecret(ctx context.Context, org string, secret string, localVarOptionals *OrgSecretApiDeleteOrgScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Delete")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -207,7 +205,7 @@ func (a *OrgSecretApiService) DeleteOrgScopedSecret(ctx context.Context, org str
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -228,33 +226,32 @@ func (a *OrgSecretApiService) DeleteOrgScopedSecret(ctx context.Context, org str
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 OrgSecretApiService Retrieve a secret
 Retrieves the information of the secret.
@@ -267,15 +264,15 @@ Retrieves the information of the secret.
 */
 
 type OrgSecretApiGetOrgScopedSecretOpts struct {
-	HarnessAccount optional.String
+    HarnessAccount optional.String
 }
 
 func (a *OrgSecretApiService) GetOrgScopedSecret(ctx context.Context, org string, secret string, localVarOptionals *OrgSecretApiGetOrgScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -318,7 +315,7 @@ func (a *OrgSecretApiService) GetOrgScopedSecret(ctx context.Context, org string
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -339,33 +336,32 @@ func (a *OrgSecretApiService) GetOrgScopedSecret(ctx context.Context, org string
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 OrgSecretApiService List secrets
 Retrieves the information of the secrets.
@@ -374,30 +370,30 @@ Retrieves the information of the secrets.
  * @param optional nil or *OrgSecretApiGetOrgScopedSecretsOpts - Optional Parameters:
      * @param "Secret" (optional.Interface of []string) -  Slug field of secrets
      * @param "Type_" (optional.Interface of []string) -  Secret types on which the filter will be applied
-     * @param "Recursive" (optional.Bool) -  Expand current scope to include all child scopes
+     * @param "Recursive" (optional.Bool) -  Expand current scope to include all child scopes 
      * @param "SearchTerm" (optional.String) -  This would be used to filter resources having attributes matching with search term.
-     * @param "Page" (optional.Int32) -  Pagination page number strategy: Specify the page number within the paginated collection related to the number of items in each page
+     * @param "Page" (optional.Int32) -  Pagination page number strategy: Specify the page number within the paginated collection related to the number of items in each page 
      * @param "Limit" (optional.Int32) -  Pagination: Number of items to return
      * @param "HarnessAccount" (optional.String) -  Slug field of the account the resource is scoped to. This is required for Authorization methods other than the x-api-key header. If you are using the x-api-key header, this can be skipped.
 @return []SecretResponse
 */
 
 type OrgSecretApiGetOrgScopedSecretsOpts struct {
-	Secret         optional.Interface
-	Type_          optional.Interface
-	Recursive      optional.Bool
-	SearchTerm     optional.String
-	Page           optional.Int32
-	Limit          optional.Int32
-	HarnessAccount optional.String
+    Secret optional.Interface
+    Type_ optional.Interface
+    Recursive optional.Bool
+    SearchTerm optional.String
+    Page optional.Int32
+    Limit optional.Int32
+    HarnessAccount optional.String
 }
 
 func (a *OrgSecretApiService) GetOrgScopedSecrets(ctx context.Context, org string, localVarOptionals *OrgSecretApiGetOrgScopedSecretsOpts) ([]SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue []SecretResponse
 	)
 
@@ -457,7 +453,7 @@ func (a *OrgSecretApiService) GetOrgScopedSecrets(ctx context.Context, org strin
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -478,33 +474,32 @@ func (a *OrgSecretApiService) GetOrgScopedSecrets(ctx context.Context, org strin
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 OrgSecretApiService Update a secret
 Updates the information of the secret with the matching secret slug.
@@ -518,15 +513,15 @@ Updates the information of the secret with the matching secret slug.
 */
 
 type OrgSecretApiUpdateOrgScopedSecretOpts struct {
-	HarnessAccount optional.String
+    HarnessAccount optional.String
 }
 
 func (a *OrgSecretApiService) UpdateOrgScopedSecret(ctx context.Context, body SecretRequest, org string, secret string, localVarOptionals *OrgSecretApiUpdateOrgScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -571,7 +566,7 @@ func (a *OrgSecretApiService) UpdateOrgScopedSecret(ctx context.Context, body Se
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -592,26 +587,26 @@ func (a *OrgSecretApiService) UpdateOrgScopedSecret(ctx context.Context, body Se
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

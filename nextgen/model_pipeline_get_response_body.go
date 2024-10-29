@@ -16,15 +16,19 @@ type PipelineGetResponseBody struct {
 	// Pipeline YAML after resolving Templates (returned as a String).
 	TemplateAppliedPipelineYaml string `json:"template_applied_pipeline_yaml,omitempty"`
 	// Pipeline identifier
-	Slug string `json:"slug,omitempty"`
+	Identifier string `json:"identifier,omitempty"`
 	// Pipeline name
 	Name string `json:"name,omitempty"`
+	// Organization identifier
+	Org string `json:"org,omitempty"`
+	// Project identifier
+	Project string `json:"project,omitempty"`
 	// Pipeline description
 	Description string `json:"description,omitempty"`
 	// Pipeline tags
 	Tags map[string]string `json:"tags,omitempty"`
 	// Modules utilised in the Pipeline.
-	Modules []string `json:"modules,omitempty"`
+	Modules    []string    `json:"modules,omitempty"`
 	GitDetails *GitDetails `json:"git_details,omitempty"`
 	// Specifies whether Pipeline is a valid or not.
 	Valid bool `json:"valid,omitempty"`

@@ -12,7 +12,7 @@ package nextgen
 // Pipeline List response body
 type PipelineListResponseBody struct {
 	// Pipeline identifier
-	Slug string `json:"slug,omitempty"`
+	Identifier string `json:"identifier,omitempty"`
 	// Pipeline name
 	Name string `json:"name,omitempty"`
 	// Pipeline description
@@ -24,7 +24,7 @@ type PipelineListResponseBody struct {
 	// Last modification timestamp for Pipeline.
 	Updated int64 `json:"updated,omitempty"`
 	// Modules utilised in the Pipeline.
-	Modules []string `json:"modules,omitempty"`
+	Modules          []string          `json:"modules,omitempty"`
 	ExecutionSummary *ExecutionSummary `json:"execution_summary,omitempty"`
 	// Array of recent Execution information
 	RecentExecutionInfo []RecentExecutionInfo `json:"recent_execution_info,omitempty"`
@@ -33,6 +33,6 @@ type PipelineListResponseBody struct {
 	// Identifier of the Harness Connector used for CRUD operations on the Entity (for Git Experience).
 	ConnectorRef string `json:"connector_ref,omitempty"`
 	// Specifies whether Pipeline is a valid or not.
-	Valid bool `json:"valid,omitempty"`
+	Valid      bool        `json:"valid,omitempty"`
 	GitDetails *GitDetails `json:"git_details,omitempty"`
 }

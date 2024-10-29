@@ -1,3 +1,4 @@
+
 /*
  * Harness NextGen Software Delivery Platform API Reference
  *
@@ -11,12 +12,11 @@ package nextgen
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-
+	"fmt"
 	"github.com/antihax/optional"
 )
 
@@ -26,7 +26,6 @@ var (
 )
 
 type ProjectSecretApiService service
-
 /*
 ProjectSecretApiService Create a secret
 Creates a new secret
@@ -41,16 +40,16 @@ Creates a new secret
 */
 
 type ProjectSecretApiCreateProjectScopedSecretOpts struct {
-	HarnessAccount optional.String
-	PrivateSecret  optional.Bool
+    HarnessAccount optional.String
+    PrivateSecret optional.Bool
 }
 
 func (a *ProjectSecretApiService) CreateProjectScopedSecret(ctx context.Context, body SecretRequest, org string, project string, localVarOptionals *ProjectSecretApiCreateProjectScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -98,7 +97,7 @@ func (a *ProjectSecretApiService) CreateProjectScopedSecret(ctx context.Context,
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -119,33 +118,32 @@ func (a *ProjectSecretApiService) CreateProjectScopedSecret(ctx context.Context,
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 201 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 ProjectSecretApiService Delete a secret
 Deletes the information of the secret with the matching secret slug.
@@ -159,15 +157,15 @@ Deletes the information of the secret with the matching secret slug.
 */
 
 type ProjectSecretApiDeleteProjectScopedSecretOpts struct {
-	HarnessAccount optional.String
+    HarnessAccount optional.String
 }
 
 func (a *ProjectSecretApiService) DeleteProjectScopedSecret(ctx context.Context, org string, project string, secret string, localVarOptionals *ProjectSecretApiDeleteProjectScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Delete")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -211,7 +209,7 @@ func (a *ProjectSecretApiService) DeleteProjectScopedSecret(ctx context.Context,
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -232,33 +230,32 @@ func (a *ProjectSecretApiService) DeleteProjectScopedSecret(ctx context.Context,
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 ProjectSecretApiService Retrieve a secret
 Retrieves the information of the secret.
@@ -272,15 +269,15 @@ Retrieves the information of the secret.
 */
 
 type ProjectSecretApiGetProjectScopedSecretOpts struct {
-	HarnessAccount optional.String
+    HarnessAccount optional.String
 }
 
 func (a *ProjectSecretApiService) GetProjectScopedSecret(ctx context.Context, org string, project string, secret string, localVarOptionals *ProjectSecretApiGetProjectScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -324,7 +321,7 @@ func (a *ProjectSecretApiService) GetProjectScopedSecret(ctx context.Context, or
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -345,33 +342,32 @@ func (a *ProjectSecretApiService) GetProjectScopedSecret(ctx context.Context, or
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 ProjectSecretApiService List secrets
 Retrieves the information of the secrets.
@@ -381,30 +377,30 @@ Retrieves the information of the secrets.
  * @param optional nil or *ProjectSecretApiGetProjectScopedSecretsOpts - Optional Parameters:
      * @param "Secret" (optional.Interface of []string) -  Slug field of secrets
      * @param "Type_" (optional.Interface of []string) -  Secret types on which the filter will be applied
-     * @param "Recursive" (optional.Bool) -  Expand current scope to include all child scopes
+     * @param "Recursive" (optional.Bool) -  Expand current scope to include all child scopes 
      * @param "SearchTerm" (optional.String) -  This would be used to filter resources having attributes matching with search term.
-     * @param "Page" (optional.Int32) -  Pagination page number strategy: Specify the page number within the paginated collection related to the number of items in each page
+     * @param "Page" (optional.Int32) -  Pagination page number strategy: Specify the page number within the paginated collection related to the number of items in each page 
      * @param "Limit" (optional.Int32) -  Pagination: Number of items to return
      * @param "HarnessAccount" (optional.String) -  Slug field of the account the resource is scoped to. This is required for Authorization methods other than the x-api-key header. If you are using the x-api-key header, this can be skipped.
 @return []SecretResponse
 */
 
 type ProjectSecretApiGetProjectScopedSecretsOpts struct {
-	Secret         optional.Interface
-	Type_          optional.Interface
-	Recursive      optional.Bool
-	SearchTerm     optional.String
-	Page           optional.Int32
-	Limit          optional.Int32
-	HarnessAccount optional.String
+    Secret optional.Interface
+    Type_ optional.Interface
+    Recursive optional.Bool
+    SearchTerm optional.String
+    Page optional.Int32
+    Limit optional.Int32
+    HarnessAccount optional.String
 }
 
 func (a *ProjectSecretApiService) GetProjectScopedSecrets(ctx context.Context, org string, project string, localVarOptionals *ProjectSecretApiGetProjectScopedSecretsOpts) ([]SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue []SecretResponse
 	)
 
@@ -465,7 +461,7 @@ func (a *ProjectSecretApiService) GetProjectScopedSecrets(ctx context.Context, o
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -486,33 +482,32 @@ func (a *ProjectSecretApiService) GetProjectScopedSecrets(ctx context.Context, o
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
-
 /*
 ProjectSecretApiService Update a secret
 Updates the information of the secret with the matching secret slug.
@@ -527,15 +522,15 @@ Updates the information of the secret with the matching secret slug.
 */
 
 type ProjectSecretApiUpdateProjectScopedSecretOpts struct {
-	HarnessAccount optional.String
+    HarnessAccount optional.String
 }
 
 func (a *ProjectSecretApiService) UpdateProjectScopedSecret(ctx context.Context, body SecretRequest, org string, project string, secret string, localVarOptionals *ProjectSecretApiUpdateProjectScopedSecretOpts) (SecretResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
+		localVarHttpMethod = strings.ToUpper("Put")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 		localVarReturnValue SecretResponse
 	)
 
@@ -581,7 +576,7 @@ func (a *ProjectSecretApiService) UpdateProjectScopedSecret(ctx context.Context,
 				key = auth.Key
 			}
 			localVarHeaderParams["x-api-key"] = key
-
+			
 		}
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
@@ -602,26 +597,26 @@ func (a *ProjectSecretApiService) UpdateProjectScopedSecret(ctx context.Context,
 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-		if err == nil {
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericSwaggerError{
-			body:  localVarBody,
+			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v SecretResponse
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
