@@ -14,4 +14,8 @@ type TemplateCreateRequestBody struct {
 	// Yaml for creating new Template
 	TemplateYaml string `json:"template_yaml,omitempty"`
 	GitDetails *GitCreateDetails1 `json:"git_details,omitempty"`
+	// True if given version for template to be set as stable
+	IsStable bool `json:"is_stable,omitempty"`
+	// Specify comment with respect to changes  
+	Comments string `json:"comments,omitempty"`
 }

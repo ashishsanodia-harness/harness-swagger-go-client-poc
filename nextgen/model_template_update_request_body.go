@@ -14,4 +14,6 @@ type TemplateUpdateRequestBody struct {
 	// Yaml for updating existing Template
 	TemplateYaml string `json:"template_yaml,omitempty"`
 	GitDetails *GitUpdateDetails1 `json:"git_details,omitempty"`
+	// Specify comment with respect to changes  
+	Comments string `json:"comments,omitempty"`
 }

@@ -9,6 +9,7 @@
  */
 package nextgen
 
+// Template stable version update Response
 type TemplateUpdateStableResponse struct {
 	// Version which is set as stable for the given Template 
 	StableVersion string `json:"stable_version,omitempty"`

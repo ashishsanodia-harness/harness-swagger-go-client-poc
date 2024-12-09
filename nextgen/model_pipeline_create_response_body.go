@@ -12,5 +12,5 @@ package nextgen
 // Pipeline response body
 type PipelineCreateResponseBody struct {
 	// Pipeline identifier
-	Slug string `json:"slug,omitempty"`
+	Identifier string `json:"identifier,omitempty"`
 }

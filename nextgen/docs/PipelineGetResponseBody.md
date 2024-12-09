@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **TemplateAppliedPipelineYaml** | **string** | Pipeline YAML after resolving Templates (returned as a String). | [optional] [default to null]
 **Slug** | **string** | Pipeline identifier | [optional] [default to null]
 **Name** | **string** | Pipeline name | [optional] [default to null]
+**Org** | **string** | Organization identifier | [optional] [default to null]
+**Project** | **string** | Project identifier | [optional] [default to null]
 **Description** | **string** | Pipeline description | [optional] [default to null]
 **Tags** | **map[string]string** | Pipeline tags | [optional] [default to null]
 **Modules** | **[]string** | Modules utilised in the Pipeline. | [optional] [default to null]

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EntityIdentifier** | **string** | Entity identifier | [optional] [default to null]
+**ObjectId** | **string** | Object identifier / blob id | [optional] [default to null]
 **BranchName** | **string** | Name of the branch. | [optional] [default to null]
 **FilePath** | **string** | File path of the Entity in the repository. | [optional] [default to null]
 **RepoName** | **string** | Name of the repository. | [optional] [default to null]

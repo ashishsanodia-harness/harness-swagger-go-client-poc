@@ -15,10 +15,16 @@ type GitUpdateDetails struct {
 	BranchName string `json:"branch_name,omitempty"`
 	// Commit message used for the merge commit.
 	CommitMessage string `json:"commit_message,omitempty"`
-	// Last object identifier (for Github).
+	// Last object identifier (for Github only).
 	LastObjectId string `json:"last_object_id,omitempty"`
 	// Name of the default branch (this checks out a new branch titled by branch_name).
 	BaseBranch string `json:"base_branch,omitempty"`
-	// Last commit identifier (for Git Repositories other than Github).
+	// Last commit identifier.
 	LastCommitId string `json:"last_commit_id,omitempty"`
+	// Identifier of the Harness Connector used for CRUD operations on the Entity.
+	ConnectorRef string `json:"connector_ref,omitempty"`
+	// Specifies whether the Entity is to be stored in Git or not.
+	StoreType string `json:"store_type,omitempty"`
+	// Name of the repository.
+	RepoName string `json:"repo_name,omitempty"`
 }

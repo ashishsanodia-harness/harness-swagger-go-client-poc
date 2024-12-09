@@ -11,8 +11,8 @@ package nextgen
 
 // Git Experience related details of the Entity.
 type GitDetails struct {
-	// Entity identifier
-	EntityIdentifier string `json:"entity_identifier,omitempty"`
+	// Object identifier / blob id
+	ObjectId string `json:"object_id,omitempty"`
 	// Name of the branch.
 	BranchName string `json:"branch_name,omitempty"`
 	// File path of the Entity in the repository.

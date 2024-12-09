@@ -14,13 +14,15 @@ type GitFindDetails struct {
 	// Name of the branch.
 	BranchName string `json:"branch_name,omitempty"`
 	// Connector ref of parent template if its remote
-	ParentConnectorRef string `json:"parent_connector_ref,omitempty"`
+	ParentEntityConnectorRef string `json:"parent_entity_connector_ref,omitempty"`
 	// Repo name of parent template if its remote
-	ParentRepoName string `json:"parent_repo_name,omitempty"`
+	ParentEntityRepoName string `json:"parent_entity_repo_name,omitempty"`
 	// Account name of parent template if its remote
-	ParentAccountId string `json:"parent_account_id,omitempty"`
+	ParentEntityAccountId string `json:"parent_entity_account_id,omitempty"`
 	// Organization name of parent template if its remote
-	ParentOrgId string `json:"parent_org_id,omitempty"`
+	ParentEntityOrgId string `json:"parent_entity_org_id,omitempty"`
 	// Project name of parent entity if its remote
-	ParentProjectId string `json:"parent_project_id,omitempty"`
+	ParentEntityProjectId string `json:"parent_entity_project_id,omitempty"`
+	// Specify comment with respect to changes  
+	Comments string `json:"comments,omitempty"`
 }

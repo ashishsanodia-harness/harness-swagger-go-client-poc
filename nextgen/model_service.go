@@ -14,7 +14,7 @@ type Service struct {
 	// Account Identifier
 	Account string `json:"account,omitempty"`
 	// Identifier of the Service Request.
-	Slug string `json:"slug"`
+	Identifier string `json:"identifier"`
 	// Organization Identifier for the Entity.
 	Org string `json:"org,omitempty"`
 	// Project Identifier for the Entity.

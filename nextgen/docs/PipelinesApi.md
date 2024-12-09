@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json, application/yaml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -116,6 +116,8 @@ Name | Type | Description  | Notes
  **harnessAccount** | **optional.String**| Slug field of the account the resource is scoped to. This is required for Authorization methods other than the x-api-key header. If you are using the x-api-key header, this can be skipped. | 
  **branchName** | **optional.String**| Name of the branch (for Git Experience). | 
  **templateApplied** | **optional.Bool**| If true, returns Pipeline YAML with Templates applied on it. | [default to false]
+ **connectorRef** | **optional.String**| Identifier of the Harness Connector used for CRUD operations on the Entity (for Git Experience). | 
+ **repoName** | **optional.String**| Name of the repository (for Git Experience). | 
 
 ### Return type
 
